@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- Header section -->
+<!-- Header section end -->
+<!-- Product filter section -->
+<section class="product-filter-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>EN ÇOK TERCİH EDİLEN ARAÇLAR</h2>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.Araclar)
+            {<a href="Arac/Detay/@item.AracId">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="~/Content/images/@item.AracResmi" alt="">
+                                <div class="pi-links">
+                                    <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Rezerve Et</span></a>
+                                </div>
+                            </div>
+                            <div class="pi-text">
+                                <h6>@item.GunlukKiraBedeli ₺ </h6>
+                                <h5>@item.AracAdi</h5>
+                                <p>@item.AracModeli</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            }
+
+        </div>
+        <div class="text-center pt-5">
+            <button class="site-btn sb-line sb-dark">DAHA FAZLA GÖSTER</button>
+        </div>
+    </div>
+</section>
+<!-- Product filter section end -->
+<!-- letest product section -->
+<section class="top-letest-product-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>SON EKLENENLER</h2>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.Araclar)
+            {<a href="Arac/Detay/@item.AracId">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="~/Content/images/@item.AracResmi" alt="">
+                                <div class="pi-links">
+                                    <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Rezerve Et</span></a>
+                                </div>
+                            </div>
+                            <div class="pi-text">
+                                <h6>@item.GunlukKiraBedeli ₺ </h6>
+                                <h5>@item.AracAdi</h5>
+                                <p>@item.AracModeli</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+  
+</section>
+<!-- letest product section end -->
+<!-- Banner section -->
+<section class="banner-section">
+    <div class="container">
+
+    </div>
+</section>
+<!-- Banner section end  -->

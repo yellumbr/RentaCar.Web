@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SirketEkle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Sirket" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sirket">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SirketId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SirketAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sehir" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Adres" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AracSayisi" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SirketPuani" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="Yoneticiler" type="tns:ArrayOfYonetici" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfYonetici">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Yonetici" nillable="true" type="tns:Yonetici" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Yonetici">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TcKimlik" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Soyad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Adres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DogumTarihi" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="YoneticiId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SirketId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sifre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SirketEkleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SirketEkleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SirketGuncelle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Sirket" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SirketGuncelleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SirketGuncelleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SirketIdSil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SirketIdSilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SirketIdSilResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SirketHepsiniSec">
+        <s:complexType />
+      </s:element>
+      <s:element name="SirketHepsiniSecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SirketHepsiniSecResult" type="tns:ArrayOfSirket" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSirket">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Sirket" nillable="true" type="tns:Sirket" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SirketIdSec">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SirketIdSecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SirketIdSecResult" type="tns:Sirket" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SirketEkleSoapIn">
+    <wsdl:part name="parameters" element="tns:SirketEkle" />
+  </wsdl:message>
+  <wsdl:message name="SirketEkleSoapOut">
+    <wsdl:part name="parameters" element="tns:SirketEkleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SirketGuncelleSoapIn">
+    <wsdl:part name="parameters" element="tns:SirketGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="SirketGuncelleSoapOut">
+    <wsdl:part name="parameters" element="tns:SirketGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SirketIdSilSoapIn">
+    <wsdl:part name="parameters" element="tns:SirketIdSil" />
+  </wsdl:message>
+  <wsdl:message name="SirketIdSilSoapOut">
+    <wsdl:part name="parameters" element="tns:SirketIdSilResponse" />
+  </wsdl:message>
+  <wsdl:message name="SirketHepsiniSecSoapIn">
+    <wsdl:part name="parameters" element="tns:SirketHepsiniSec" />
+  </wsdl:message>
+  <wsdl:message name="SirketHepsiniSecSoapOut">
+    <wsdl:part name="parameters" element="tns:SirketHepsiniSecResponse" />
+  </wsdl:message>
+  <wsdl:message name="SirketIdSecSoapIn">
+    <wsdl:part name="parameters" element="tns:SirketIdSec" />
+  </wsdl:message>
+  <wsdl:message name="SirketIdSecSoapOut">
+    <wsdl:part name="parameters" element="tns:SirketIdSecResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SirketWebServisSoap">
+    <wsdl:operation name="SirketEkle">
+      <wsdl:input message="tns:SirketEkleSoapIn" />
+      <wsdl:output message="tns:SirketEkleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SirketGuncelle">
+      <wsdl:input message="tns:SirketGuncelleSoapIn" />
+      <wsdl:output message="tns:SirketGuncelleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SirketIdSil">
+      <wsdl:input message="tns:SirketIdSilSoapIn" />
+      <wsdl:output message="tns:SirketIdSilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SirketHepsiniSec">
+      <wsdl:input message="tns:SirketHepsiniSecSoapIn" />
+      <wsdl:output message="tns:SirketHepsiniSecSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SirketIdSec">
+      <wsdl:input message="tns:SirketIdSecSoapIn" />
+      <wsdl:output message="tns:SirketIdSecSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SirketWebServisSoap" type="tns:SirketWebServisSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SirketEkle">
+      <soap:operation soapAction="http://tempuri.org/SirketEkle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SirketGuncelle">
+      <soap:operation soapAction="http://tempuri.org/SirketGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SirketIdSil">
+      <soap:operation soapAction="http://tempuri.org/SirketIdSil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SirketHepsiniSec">
+      <soap:operation soapAction="http://tempuri.org/SirketHepsiniSec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SirketIdSec">
+      <soap:operation soapAction="http://tempuri.org/SirketIdSec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SirketWebServisSoap12" type="tns:SirketWebServisSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SirketEkle">
+      <soap12:operation soapAction="http://tempuri.org/SirketEkle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SirketGuncelle">
+      <soap12:operation soapAction="http://tempuri.org/SirketGuncelle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SirketIdSil">
+      <soap12:operation soapAction="http://tempuri.org/SirketIdSil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SirketHepsiniSec">
+      <soap12:operation soapAction="http://tempuri.org/SirketHepsiniSec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SirketIdSec">
+      <soap12:operation soapAction="http://tempuri.org/SirketIdSec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SirketWebServis">
+    <wsdl:port name="SirketWebServisSoap" binding="tns:SirketWebServisSoap">
+      <soap:address location="http://localhost:52012/SirketWebServis.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SirketWebServisSoap12" binding="tns:SirketWebServisSoap12">
+      <soap12:address location="http://localhost:52012/SirketWebServis.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

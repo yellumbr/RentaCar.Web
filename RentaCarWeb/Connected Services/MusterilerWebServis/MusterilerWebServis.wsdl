@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="MusteriEkle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Musteriler" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Musteriler">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MusteriId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TcKimlik" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Soyad" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DogumTarihi" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Adres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KullaniciAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sifre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EhliyetTipi" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EhliyetYil" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="KaraListe" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Araclar" type="tns:ArrayOfAraclar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAraclar">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Araclar" nillable="true" type="tns:Araclar" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Araclar">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AracId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Plaka" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AracAdi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AracModeli" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GerekenEhliyetYasi" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinimumYasSiniri" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GunlukKmSiniri" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AracKm" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HavaYastigi" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BagajHacmi" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="KoltukSayisi" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GunlukKiraBedeli" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rezerv" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Kirada" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="YakitTipi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VitesTipi" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="KiralanmaTarihi" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="KiradanDonusTarihi" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="AracResmi" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MusteriId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SirketId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MusteriEkleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MusteriEkleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriGuncelle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:Musteriler" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriGuncelleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MusteriGuncelleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriIdSil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriIdSilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MusteriIdSilResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriHepsiniSec">
+        <s:complexType />
+      </s:element>
+      <s:element name="MusteriHepsiniSecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriHepsiniSecResult" type="tns:ArrayOfMusteriler" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMusteriler">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Musteriler" nillable="true" type="tns:Musteriler" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MusteriIdSec">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MusteriIdSecResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MusteriIdSecResult" type="tns:Musteriler" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="MusteriEkleSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriEkle" />
+  </wsdl:message>
+  <wsdl:message name="MusteriEkleSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriEkleResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriGuncelleSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="MusteriGuncelleSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIdSilSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriIdSil" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIdSilSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriIdSilResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriHepsiniSecSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriHepsiniSec" />
+  </wsdl:message>
+  <wsdl:message name="MusteriHepsiniSecSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriHepsiniSecResponse" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIdSecSoapIn">
+    <wsdl:part name="parameters" element="tns:MusteriIdSec" />
+  </wsdl:message>
+  <wsdl:message name="MusteriIdSecSoapOut">
+    <wsdl:part name="parameters" element="tns:MusteriIdSecResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MusterilerWebServisSoap">
+    <wsdl:operation name="MusteriEkle">
+      <wsdl:input message="tns:MusteriEkleSoapIn" />
+      <wsdl:output message="tns:MusteriEkleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriGuncelle">
+      <wsdl:input message="tns:MusteriGuncelleSoapIn" />
+      <wsdl:output message="tns:MusteriGuncelleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIdSil">
+      <wsdl:input message="tns:MusteriIdSilSoapIn" />
+      <wsdl:output message="tns:MusteriIdSilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriHepsiniSec">
+      <wsdl:input message="tns:MusteriHepsiniSecSoapIn" />
+      <wsdl:output message="tns:MusteriHepsiniSecSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIdSec">
+      <wsdl:input message="tns:MusteriIdSecSoapIn" />
+      <wsdl:output message="tns:MusteriIdSecSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MusterilerWebServisSoap" type="tns:MusterilerWebServisSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MusteriEkle">
+      <soap:operation soapAction="http://tempuri.org/MusteriEkle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriGuncelle">
+      <soap:operation soapAction="http://tempuri.org/MusteriGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIdSil">
+      <soap:operation soapAction="http://tempuri.org/MusteriIdSil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriHepsiniSec">
+      <soap:operation soapAction="http://tempuri.org/MusteriHepsiniSec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIdSec">
+      <soap:operation soapAction="http://tempuri.org/MusteriIdSec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MusterilerWebServisSoap12" type="tns:MusterilerWebServisSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MusteriEkle">
+      <soap12:operation soapAction="http://tempuri.org/MusteriEkle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriGuncelle">
+      <soap12:operation soapAction="http://tempuri.org/MusteriGuncelle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIdSil">
+      <soap12:operation soapAction="http://tempuri.org/MusteriIdSil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriHepsiniSec">
+      <soap12:operation soapAction="http://tempuri.org/MusteriHepsiniSec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MusteriIdSec">
+      <soap12:operation soapAction="http://tempuri.org/MusteriIdSec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MusterilerWebServis">
+    <wsdl:port name="MusterilerWebServisSoap" binding="tns:MusterilerWebServisSoap">
+      <soap:address location="http://localhost:52012/MusterilerWebServis.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MusterilerWebServisSoap12" binding="tns:MusterilerWebServisSoap12">
+      <soap12:address location="http://localhost:52012/MusterilerWebServis.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
