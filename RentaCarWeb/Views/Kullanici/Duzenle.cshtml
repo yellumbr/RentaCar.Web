@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Kullanıcı Güncelle</h4>
+        </div>
+        <form>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Kullanıcı Adı</label>
+                            <select id="cmbKullanici" class="form-control">
+                                <option>Seçim Yapınız</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Ad</label>
+                            <input type="text" id="ad" class="form-control" placeholder="Ad" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Soyad</label>
+                            <input type="text" id="soyad" class="form-control" placeholder="Soyad" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="tcnumarasi">Tc numarası</label>
+                            <input type="text" id="tcnumarasi" class="form-control" placeholder="Tc numarası" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Telefon numarası</label>
+                            <input type="text" id="telefonno" class="form-control" placeholder="Telefon numarası" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Kullanıcı Adı</label>
+                            <input type="text" id="kullaniciadi" class="form-control" placeholder="Kullanıcı Adı" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Şifre</label>
+                            <input type="password" id="parola" class="form-control" placeholder="Parola" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Adres</label>
+                            <input type="text" id="adres" class="form-control" placeholder="Adres" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Mail Adresi</label>
+                            <input type="email" id="mailadres" class="form-control" placeholder="Mail adresi" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Doğum Tarihi</label>
+                            <input type="date" id="dogumtarihi" class="form-control" placeholder="Doğum tarihi" required>
+                        </div>
+                    </div>
+                </div>
+
+                <input type="button" id="kullaniciguncelle" value="Kullanıcı Güncelle" class="btn btn-info btn-fill pull-right" />
+                <div class="clearfix"></div>
+
+
+                <input type="hidden" id="KullaniciId">
+                <input type="hidden" id="Anahtar">
+                @Html.Hidden("RedirectTo", Url.Action("Index", "Kullanici"))
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+             var url = $("#RedirectTo").val();
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:54205/api/kullanici/",
+            success: function (data) {
+                $.each(data, function (i, val) {
+                    $("#cmbKullanici").append(
+                        '<option>' + val.KullaniciAdi + '</option>'
+                    )
+                })
+            }
+        });
+
+        $("#cmbKullanici").change(function () {
+            var seciliKullaniciAdi = $(this).children("option:selected").val();
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:54205/api/kullanici?kullaniciAdi=" + seciliKullaniciAdi,
+                success: function (data) {
+                    $("#ad").val(data.Ad);
+                    $("#soyad").val(data.Soyad);
+                    $("#tcnumarasi").val(data.TcKimlik);
+                    $("#telefonno").val(data.Telefon);
+                    $("#kullaniciadi").val(data.KullaniciAdi);
+                    $("#parola").val(data.Parola);
+                    $("#adres").val(data.Adres);
+                    $("#mailadres").val(data.Email);
+                    $("#dogumtarihi").val(data.DogumTarihi);
+                    $("#KullaniciId").val(data.KullaniciID);
+                    $("#Anahtar").val(data.Anahtar);
+                }
+            });
+        });
+
+
+        $("#kullaniciguncelle").click(function () {
+            var id = $("#KullaniciId").val();
+            var anahtar = $("#Anahtar").val();
+            var user = new Object();  
+            user.id = id;
+            user.Anahtar = anahtar;
+            user.Ad = $("#ad").val();  
+            user.Soyad = $("#soyad").val();
+            user.TcKimlik = $("#tcnumarasi").val();
+            user.Telefon = $("#telefonno").val();
+            user.KullaniciAdi = $("#kullaniciadi").val();
+            user.Parola = $("#parola").val();
+            user.Adres = $("#adres").val();
+            user.Email = $("#mailadres").val();
+            user.DogumTarihi = $("#dogumtarihi").val();
+
+            $.ajax({
+                type: "PUT",
+                url: "http://localhost:54205/api/kullanici/" + id,
+                data: user,
+                success: function (data) {
+                    alert("Güncelleme başarılı.");
+                    window.location.href = url;
+
+                }
+            });
+        });
+    });
+
+
+</script>
+

@@ -47,20 +47,16 @@
   <ItemGroup>
     <Reference Include="Business, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\RentaCarApp\Business\bin\Debug\Business.dll</HintPath>
+      <HintPath>..\..\rentacar\Business\bin\Debug\Business.dll</HintPath>
     </Reference>
     <Reference Include="Commons, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\RentaCarApp\Business\bin\Debug\Commons.dll</HintPath>
-    </Reference>
-    <Reference Include="DataAccesLayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\RentaCarApp\Business\bin\Debug\DataAccesLayer.dll</HintPath>
+      <HintPath>..\..\rentacar\Business\bin\Debug\Commons.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\RentaCarApp\Business\bin\Debug\Models.dll</HintPath>
+      <HintPath>..\..\rentacar\Business\bin\Debug\Models.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -138,21 +134,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Connected Services\AracWebServis\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\MusterilerWebServis\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\SirketWebServis\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AracController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -164,63 +145,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AracWebServis\AracWebServis.disco" />
-    <None Include="Connected Services\AracWebServis\configuration91.svcinfo" />
-    <None Include="Connected Services\AracWebServis\configuration.svcinfo" />
-    <None Include="Connected Services\AracWebServis\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="Connected Services\AracWebServis\RentaCarWeb.AracWebServis.AracEkleResponse1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\AracWebServis\RentaCarWeb.AracWebServis.AracGuncelleResponse1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\AracWebServis\RentaCarWeb.AracWebServis.AracHepsiniSecResponse1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\AracWebServis\RentaCarWeb.AracWebServis.AracIdSecResponse1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\AracWebServis\RentaCarWeb.AracWebServis.Araclar1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\AracWebServis\RentaCarWeb.AracWebServis.AracKiralaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\AracWebServis\RentaCarWeb.AracWebServis.AracIdSilResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\MusterilerWebServis\MusterilerWebServis.disco" />
-    <None Include="Connected Services\MusterilerWebServis\configuration91.svcinfo" />
-    <None Include="Connected Services\MusterilerWebServis\configuration.svcinfo" />
-    <None Include="Connected Services\MusterilerWebServis\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <Content Include="Connected Services\SirketWebServis\RentaCarWeb.SirketWebServis.Sirket.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SirketWebServis\RentaCarWeb.SirketWebServis.SirketEkleResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SirketWebServis\RentaCarWeb.SirketWebServis.SirketGuncelleResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SirketWebServis\RentaCarWeb.SirketWebServis.SirketHepsiniSecResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\SirketWebServis\RentaCarWeb.SirketWebServis.SirketIdSecResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\SirketWebServis\SirketWebServis.disco" />
-    <None Include="Connected Services\SirketWebServis\configuration91.svcinfo" />
-    <None Include="Connected Services\SirketWebServis\configuration.svcinfo" />
-    <None Include="Connected Services\SirketWebServis\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Content\Admin\assets\css\animate.min.css" />
     <Content Include="Content\Admin\assets\css\bootstrap.min.css" />
     <Content Include="Content\Admin\assets\css\demo.css" />
@@ -273,23 +197,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Connected Services\AracWebServis\AracWebServis.wsdl" />
-    <None Include="Connected Services\MusterilerWebServis\MusterilerWebServis.wsdl" />
-    <Content Include="Connected Services\MusterilerWebServis\RentaCarWeb.MusterilerWebServis.MusteriEkleResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\MusterilerWebServis\RentaCarWeb.MusterilerWebServis.MusteriGuncelleResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\MusterilerWebServis\RentaCarWeb.MusterilerWebServis.MusteriHepsiniSecResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\MusterilerWebServis\RentaCarWeb.MusterilerWebServis.MusteriIdSecResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\MusterilerWebServis\RentaCarWeb.MusterilerWebServis.Musteriler.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Content\Admin\assets\fonts\Pe-icon-7-stroke.eot" />
     <Content Include="Content\Admin\assets\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="Content\Admin\assets\fonts\Pe-icon-7-stroke.woff" />
@@ -322,7 +229,6 @@
     <Content Include="Content\Admin\assets\sass\lbd\_typography.scss" />
     <Content Include="Content\Admin\assets\sass\lbd\_variables.scss" />
     <Content Include="Content\Admin\assets\sass\light-bootstrap-dashboard.scss" />
-    <None Include="Connected Services\SirketWebServis\SirketWebServis.wsdl" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -358,20 +264,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\KayitOl.cshtml" />
-    <Content Include="Views\Arac\Index.cshtml" />
-    <Content Include="Views\Arac\Detay.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Kullanici\Create.cshtml" />
-    <Content Include="Views\Arac\Create.cshtml" />
-    <Content Include="Views\Arac\AracGuncelle.cshtml" />
-    <Content Include="Views\Arac\AracSil.cshtml" />
     <Content Include="Views\Kullanici\Index.cshtml" />
-    <Content Include="Views\Arac\Kiralama.cshtml" />
-    <Content Include="Views\Kullanici\Edit.cshtml" />
+    <Content Include="Views\Kullanici\Duzenle.cshtml" />
     <Content Include="Views\Kullanici\Delete.cshtml" />
     <Content Include="Views\Admin\Rapor.cshtml" />
-    <Content Include="Views\Arac\Rezerve.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Kullanici\Detay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -392,11 +292,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\AracWebServis\" />
-    <WCFMetadataStorage Include="Connected Services\MusterilerWebServis\" />
-    <WCFMetadataStorage Include="Connected Services\SirketWebServis\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

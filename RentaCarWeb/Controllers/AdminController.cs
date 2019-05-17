@@ -5,9 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Commons.Concretes;
 using Business.Concretes;
-using RentaCarWeb.AracWebServis;
-using Arac = Models.Concretes.Araclar;
-using Musteriler = Models.Concretes.Musteriler;
+
 
 namespace RentaCarWeb.Controllers
 {

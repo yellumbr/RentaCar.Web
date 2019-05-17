@@ -1,24 +1,20 @@
-﻿@{
+﻿
+@{
+    ViewBag.Title = "Detay";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-@{
-    ViewBag.Title = "Index";
-}
 
-<p>
-    @Html.ActionLink("Yeni Ekle", "Ekle")
-</p>
+<h2>Detay</h2>
+
 <div class="col-md-12">
     <div class="card">
         <div class="header">
             <h4 class="title">Kullanıcı Listesi</h4>
         </div>
-        <div class="content table-responsive table-full-width">
+        <div class="content">
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
-
-
                         <th>
                             @Html.Encode("Kimlik Numarası")
                         </th>
@@ -66,46 +62,36 @@
         </div>
     </div>
 </div>
-<input type="hidden" id="gizliId"/>
-<script src="~/Scripts/jquery-3.3.1.js"></script>
 
+<script src="~/Scripts/jquery-3.3.1.js"></script>
 <script>
 
     $(document).ready(function () {
-        var token = localStorage.getItem("Anahtar");
-        var Trimtoken = token.replace(/\"/g, "");
-        
+        var id = @ViewBag.id;
+
         $.ajax({
             type: "GET",
-            url: "http://localhost:54205/api/kullanici?Anahtar=" + Trimtoken,
+            url: "http://localhost:54205/api/kullanici/"+id,
             success: function (data) {
-                console.log(data.Data);
-                $.each(data, function (i, val) {
-                    $("#gizliId").val(val.KullaniciID); 
-                    var id = $("#gizliId").val();
                     $("#myTable").after(
                         '<tr>' +
-                        '<td>' + val.TcKimlik + '</td>' +
-                        '<td>' + val.Ad + '</td>' +
-                        '<td>' + val.Soyad + '</td>' +
-                        '<td>' + val.DogumTarihi + '</td>' +
-                        '<td>' + val.Adres + '</td>' +
-                        '<td>' + val.Telefon + '</td>' +
-                        '<td>' + val.Email + '</td>' +
-                        '<td>' + val.KullaniciAdi + '</td>' +
-                        '<td>' + val.Parola + '</td>' +
-                        '<td>' + val.Durum + '</td>' +
-                        '<td>' + val.KullaniciTipi + '</td>' +
-                      
-                        '<td><a href="./Detay/' + val.KullaniciID + '">Detaylar</a> | <a href="./Duzenle/">Düzenle</a> | <a href="./Sil/' + val.KullaniciID + '">Sil</a> </td>' +
+                        '<td>' + data.TcKimlik + '</td>' +
+                        '<td>' + data.Ad + '</td>' +
+                        '<td>' + data.Soyad + '</td>' +
+                        '<td>' + data.DogumTarihi + '</td>' +
+                        '<td>' + data.Adres + '</td>' +
+                        '<td>' + data.Telefon + '</td>' +
+                        '<td>' + data.Email + '</td>' +
+                        '<td>' + data.KullaniciAdi + '</td>' +
+                        '<td>' + data.Parola + '</td>' +
+                        '<td>' + data.Durum + '</td>' +
+                        '<td>' + data.KullaniciTipi + '</td>' +
+
+                        '<td><a href="Detay/' + data.KullaniciID + '">Detaylar</a> | <a href="/Duzenle/' + data.KullaniciID + '">Düzenle</a> | <a href="/Sil/' + data.KullaniciID + '">Sil</a> </td>' +
                         '</tr>'
-          
                     )
-                })
+                
             }
         })
     })
 </script>
-
-
-

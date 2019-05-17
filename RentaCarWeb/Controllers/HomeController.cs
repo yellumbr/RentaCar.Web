@@ -5,18 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using Commons.Concretes;
 using Business.Concretes;
-using RentaCarWeb.AracWebServis;
-using Arac = Models.Concretes.Araclar;
 
 namespace RentaCarWeb.Controllers
 {
     public class HomeController : Controller
     {
-        AracWebServisSoapClient aracServis = new AracWebServisSoapClient();
-        AracController a = new AracController();
+        
         public ActionResult Index()
         {
-            ViewBag.Araclar = a.aracGetir();
             return View();
         }
 
