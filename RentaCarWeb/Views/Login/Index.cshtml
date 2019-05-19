@@ -54,7 +54,7 @@
     <script src="~/Scripts/bootstrap.js"></script>
 
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+  
 
     <script>
         $("#btnGiris").click(function () {
@@ -63,7 +63,7 @@
              var url = $("#RedirectTo").val();
             alert("213 " + userName + " " + password);
             $.ajax({
-                url: "http://localhost:54205/api/login?kullaniciAdi=" + userName + "&parola=" + password,
+                url: "http://rentacarservices.azurewebsites.net/api/login?kullaniciAdi=" + userName + "&parola=" + password,
                 type: "POST",
                 crossDomain: true,
                 data: {

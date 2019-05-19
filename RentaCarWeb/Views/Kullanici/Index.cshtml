@@ -2,12 +2,13 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Kullanıcı Listele";
 }
 
-<p>
-    @Html.ActionLink("Yeni Ekle", "Ekle")
-</p>
+    <p>
+        @Html.ActionLink("Yeni Müşteri Ekle", "MusteriEkle")
+        @Html.ActionLink("Yeni Yönetici Ekle", "YoneticiEkle")
+    </p>
 <div class="col-md-12">
     <div class="card">
         <div class="header">
@@ -67,7 +68,7 @@
     </div>
 </div>
 <input type="hidden" id="gizliId"/>
-<script src="~/Scripts/jquery-3.3.1.js"></script>
+
 
 <script>
 
@@ -77,7 +78,7 @@
         
         $.ajax({
             type: "GET",
-            url: "http://localhost:54205/api/kullanici?Anahtar=" + Trimtoken,
+            url: "http://rentacarservices.azurewebsites.net/api/kullanici?Anahtar=" + Trimtoken,
             success: function (data) {
                 console.log(data.Data);
                 $.each(data, function (i, val) {
@@ -94,7 +95,6 @@
                         '<td>' + val.Email + '</td>' +
                         '<td>' + val.KullaniciAdi + '</td>' +
                         '<td>' + val.Parola + '</td>' +
-                        '<td>' + val.Durum + '</td>' +
                         '<td>' + val.KullaniciTipi + '</td>' +
                       
                         '<td><a href="./Detay/' + val.KullaniciID + '">Detaylar</a> | <a href="./Duzenle/">Düzenle</a> | <a href="./Sil/' + val.KullaniciID + '">Sil</a> </td>' +

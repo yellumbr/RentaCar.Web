@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+    <title>@ViewBag.Title</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -28,7 +28,7 @@
 <body>
 
     <div class="wrapper">
-        <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+        <div class="sidebar" data-color="purple">
 
             <!--
 
@@ -39,7 +39,7 @@
 
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="#" class="simple-text">
+                    <a href="./Kullanici" class="simple-text">
                         Yellumbr
                     </a>
                 </div>
@@ -59,9 +59,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="renkDegis" href="/Kullanici">Kullanıcı Listele</a></li>
-                            <li><a class="renkDegis" href="/Kullanici/Olustur">Kullanıcı Ekle</a></li>
                             <li><a class="renkDegis" href="/Kullanici/Sil">Kullanıcı Sil</a></li>
                             <li><a class="renkDegis" href="/Kullanici/Duzenle">Kullanıcı Düzenle</a></li>
+                            <li><a class="renkDegis" href="/Kullanici/MusteriEkle">Müşteri Ekle</a></li>
+                            <li><a class="renkDegis" href="/Kullanici/YoneticiEkle">Yönetici Ekle</a></li>
                         </ul>
                     </li>
 
@@ -89,9 +90,9 @@
 
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="renkDegis" href="/Admin/AracEkle">Araç Ekle</a></li>
-                            <li><a class="renkDegis" href="/Admin/AracSil">Araç Sil</a></li>
-                            <li><a class="renkDegis" href="/Admin/AracGuncelle">Araç Güncelle</a></li>
+                            <li><a class="renkDegis" href="/Arac/Ekle">Araç Ekle</a></li>
+                            <li><a class="renkDegis" href="/Arac/Sil">Araç Sil</a></li>
+                            <li><a class="renkDegis" href="/Arac/Duzenle">Araç Güncelle</a></li>
                         </ul>
                     </li>
                     <li>
@@ -115,7 +116,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Dashboard</a>
+                        <a class="navbar-brand" id="yazi" href="#">@ViewBag.Title</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
@@ -129,7 +130,14 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="">
-                                    Account
+                                    Anasayfa
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="">
+                                    Çıkış Yap
                                 </a>
                             </li>
                         </ul>
@@ -183,6 +191,8 @@
 <script src="~/Content/Admin/assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 <link href="~/Content/Admin/assets/css/style.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
 
 
 </html>

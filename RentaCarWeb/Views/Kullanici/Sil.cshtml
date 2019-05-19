@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Kullanıcı Sil";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Kullanıcı Sil</h4>
+        </div>
+        <div class="content">
+            <form>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Kullanıcı Adı</label>
+                            <select id="cmbKullanici" class="form-control">
+                                <option value="kullanıcı1">Kullanıcı1</option>
+                                <option value="kullanıcı2">kullanıcı2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-info btn-fill pull-right">Kullanıcı Sil</button>
+                <div class="clearfix"></div>
+                <input type="hidden" id="KullaniciId" name="name" value="" />
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://rentacarservices.azurewebsites.net/api/kullanici/",
+            success: function (data) {
+                $.each(data, function (i, val) {
+                    $("#cmbKullanici").append(
+                        '<option>' + val.KullaniciAdi + '</option>'
+                    )
+                })
+            }
+        });
+
+        $("#cmbKullanici").change(function () {
+            var seciliKullaniciAdi = $(this).children("option:selected").val();
+            alert(seciliKullaniciAdi);
+            $.ajax({
+                type: "GET",
+                url: "http://rentacarservices.azurewebsites.net/api/kullanici?kullaniciAdi=" + seciliKullaniciAdi,
+                success: function (data) {
+                   
+      
+                    $.ajax({
+                        type: "DELETE",
+                        url: "http://rentacarservices.azurewebsites.net/api/kullanici/" + data.KullaniciID,
+                        success: function (data) {
+                            alert(data.Ad + "Silindi");
+                        }
+                    })
+                    
+                }
+            });
+        });
+
+    });
+
+</script>

@@ -14,6 +14,21 @@ namespace RentaCarWeb.Controllers
        // GET: Admin
         public ActionResult Index()
         {
+            return View("Kullanici");
+        }
+
+        public ActionResult AracEkle()
+        {
+            return View();
+        }
+
+        public ActionResult AracSil()
+        {
+            return View();
+        }
+
+        public ActionResult AracDuzenle()
+        {
             return View();
         }
 

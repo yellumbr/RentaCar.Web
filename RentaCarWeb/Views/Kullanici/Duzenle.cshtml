@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Kullanıcı Düzenle";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
@@ -9,7 +9,7 @@
 <div class="col-md-12">
     <div class="card">
         <div class="header">
-            <h4 class="title">Kullanıcı Güncelle</h4>
+            <h4 class="title">Kullanıcı Düzenle</h4>
         </div>
         <form>
             <div class="content">
@@ -101,13 +101,13 @@
     </div>
 </div>
 
-<script src="~/Scripts/jquery-3.3.1.js"></script>
+
 <script>
              var url = $("#RedirectTo").val();
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "http://localhost:54205/api/kullanici/",
+            url: "http://rentacarservices.azurewebsites.net/api/kullanici/",
             success: function (data) {
                 $.each(data, function (i, val) {
                     $("#cmbKullanici").append(
@@ -121,7 +121,7 @@
             var seciliKullaniciAdi = $(this).children("option:selected").val();
             $.ajax({
                 type: "GET",
-                url: "http://localhost:54205/api/kullanici?kullaniciAdi=" + seciliKullaniciAdi,
+                url: "http://rentacarservices.azurewebsites.net/api/kullanici?kullaniciAdi=" + seciliKullaniciAdi,
                 success: function (data) {
                     $("#ad").val(data.Ad);
                     $("#soyad").val(data.Soyad);
@@ -157,7 +157,7 @@
 
             $.ajax({
                 type: "PUT",
-                url: "http://localhost:54205/api/kullanici/" + id,
+                url: "http://rentacarservices.azurewebsites.net/api/kullanici/" + id,
                 data: user,
                 success: function (data) {
                     alert("Güncelleme başarılı.");

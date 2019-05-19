@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Detay";
+    ViewBag.Title = "Kullanıcı Detay";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
@@ -71,7 +71,7 @@
 
         $.ajax({
             type: "GET",
-            url: "http://localhost:54205/api/kullanici/"+id,
+            url: "http://rentacarservices.azurewebsites.net/api/kullanici/"+id,
             success: function (data) {
                     $("#myTable").after(
                         '<tr>' +

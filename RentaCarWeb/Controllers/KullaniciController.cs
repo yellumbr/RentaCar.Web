@@ -23,44 +23,25 @@ namespace RentaCarWeb.Controllers
             ViewBag.id = id;
             return View();
         }
-
-        //GET: Customer/Create
-
-       // POST: Customer/Create
-       //[HttpPost]
-       //[ValidateAntiForgeryToken]
-        public ActionResult Create()
-        {
-            if (!ModelState.IsValid)
-            {
-                Console.WriteLine("Girmedim");
-                return View();
-            }
-           
-                var ad = Request.Form["ad"];
-                var soyad = Request.Form["soyad"];
-                var tc = Request.Form["tcnumarasi"];
-                var adres = Request.Form["adres"];
-                var tel = Request.Form["telno"];
-                var mail = Request.Form["mailadres"];
-                var dogum = DateTime.Parse(Request.Form["dogumtarihi"]);
-                var kuladi = Request.Form["kullaniciadi"];
-                var sifre = Request.Form["sifre"];
-                var ehliyettarih = DateTime.Parse(Request.Form["ehliyettarihi"]);
-                var ehliyettipi = Request.Form["Ehliyettipi"];
-                //if (MusteriEkle(ad,soyad,tc,adres,tel,mail,dogum,kuladi,sifre,ehliyettarih,ehliyettipi))
-                //    return RedirectToAction("Create");
-                Console.WriteLine("Girdim");
-                return View();
-            
-            
-        }
-
         public ActionResult Duzenle()
         {
             return View();
         }
 
+        public ActionResult Sil()
+        {
+            return View();
+        }
+
+        public ActionResult MusteriEkle()
+        {
+            return View();
+        }
+
+        public ActionResult YoneticiEkle()
+        {
+            return View();
+        }
         //public ActionResult Duzenle(int id)
         //{
         //    ViewBag.id = id;
