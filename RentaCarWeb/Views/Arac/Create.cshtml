@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@using (Html.BeginForm("Create", "Arac", FormMethod.Post))
+{
+
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Araç Ekle</h4>
+            </div>
+            <div class="content">
+                <form>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Marka</label>
+                                <input type="text"name="aracadi" class="form-control" placeholder="Marka">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Model</label>
+                                <input type="text"name="aracmodeli" class="form-control" placeholder="Model">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Yakıt</label>
+                                <select name="yakittipi" class="form-control">
+                                    <option value="Benzin">Benzin</option>
+                                    <option value="Dizel">Dizel</option>
+                                    <option value="Otogaz">Otogaz</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Vites</label>
+                                <select name="vitestipi" class="form-control">
+                                    <option value="Manual">Manuel</option>
+                                    <option value="Otomatik">Otomatik</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Plaka</label>
+                                <input type="text" name="plaka" class="form-control" placeholder="Plaka">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Araç Kilometresi</label>
+                                <input type="text" name="arackm" class="form-control" placeholder="Araç Kilometresi">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Koltuk Sayısı</label>
+                                <input type="text" name="koltuksayisi" class="form-control" placeholder="Koltuk Sayısı">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Air Bag</label>
+                                <select name="havayastigi" class="form-control">
+                                    <option value="Manual">Var</option>
+                                    <option value="Otomatik">Yok</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Bagaj Hacmi</label>
+                                <input type="text" name="bagajhacmi" class="form-control" placeholder="Bagaj Hacmi">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Günlük Sınır Kilometresi</label>
+                                <input type="text" name="gunlukkmsinir" class="form-control" placeholder="Günlük Sınır Kilometresi">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Günlük Kira Miktarı</label>
+                                <input type="text" name="gunlukkirabedeli" class="form-control" placeholder="Günlük Kira Miktarı">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Gereken Ehliyet Yaşı</label>
+                                <input type="text" name="gerekenehliyetyasi" class="form-control" placeholder="Gereken Ehliyet Yaşı">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Minimum Yaş Sınırı</label>
+                                <input type="text" name="minyassiniri" class="form-control" placeholder="Minimum Yaş Sınırı">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" name="aracekle" value="Create"class="btn btn-info btn-fill pull-right">Araç Ekle</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
