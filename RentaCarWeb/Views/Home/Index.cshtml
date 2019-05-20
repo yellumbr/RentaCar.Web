@@ -10,27 +10,8 @@
         <div class="section-title">
             <h2>EN ÇOK TERCİH EDİLEN ARAÇLAR</h2>
         </div>
-        <div class="row">
-            @foreach (var item in ViewBag.Araclar)
-            {<a href="Arac/Detay/@item.AracId">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="~/Content/images/@item.AracResmi" alt="">
-                                <div class="pi-links">
-                                    <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Rezerve Et</span></a>
-                                </div>
-                            </div>
-                            <div class="pi-text">
-                                <h6>@item.GunlukKiraBedeli ₺ </h6>
-                                <h5>@item.AracAdi</h5>
-                                <p>@item.AracModeli</p>
+        <div id="aracdetayi" class="row">
 
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            }
 
         </div>
         <div class="text-center pt-5">
@@ -45,30 +26,11 @@
         <div class="section-title">
             <h2>SON EKLENENLER</h2>
         </div>
-        <div class="row">
-            @foreach (var item in ViewBag.Araclar)
-            {<a href="Arac/Detay/@item.AracId">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="product-item">
-                            <div class="pi-pic">
-                                <img src="~/Content/images/@item.AracResmi" alt="">
-                                <div class="pi-links">
-                                    <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Rezerve Et</span></a>
-                                </div>
-                            </div>
-                            <div class="pi-text">
-                                <h6>@item.GunlukKiraBedeli ₺ </h6>
-                                <h5>@item.AracAdi</h5>
-                                <p>@item.AracModeli</p>
+        <div id="aracdetayi" class="row">
 
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            }
         </div>
     </div>
-  
+
 </section>
 <!-- letest product section end -->
 <!-- Banner section -->
@@ -78,3 +40,50 @@
     </div>
 </section>
 <!-- Banner section end  -->
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:54205/api/arac",
+            success: function (data) {
+                $.each(data, function (i, val) {
+                    var a = val.AracID;
+                    var b = val.AracResmi;
+                    alert("" + a);
+                    $("#aracdetayi").after(
+                        '<a href="./aracdetay/' + a + '">' +
+                        '<div class="col-lg-4 col-sm-6">' +
+                        '<div class="product-item">' +
+                        '<div class="pi-pic">' +
+                        '<img src="~/Content/images/' + b + '">' +
+                        '<div class="pi-links">' +
+                        ' <a href="./aracrezerve/'+a+'" class="add-card"><i class="flaticon-bag"></i><span>Rezerve Et</span></a>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="pi-text">' +
+                        '<h6>' + val.GunlukKiraBedeli + '</h6>' +
+                        '<h5>' + val.AracAdi + '</h5>' +
+                        '<p>' + val.AracModeli + '</p>' +
+
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</a>')
+
+                });
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+</script>

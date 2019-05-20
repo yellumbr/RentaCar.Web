@@ -1,10 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Araç Ekle";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-@using (Html.BeginForm("Create", "Arac", FormMethod.Post))
-{
+
 
 
     <div class="col-md-12">
@@ -18,13 +17,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Marka</label>
-                                <input type="text"name="aracadi" class="form-control" placeholder="Marka">
+                                <input type="text"id="aracadi" class="form-control" placeholder="Marka">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Model</label>
-                                <input type="text"name="aracmodeli" class="form-control" placeholder="Model">
+                                <input type="text"id="aracmodeli" class="form-control" placeholder="Model">
                             </div>
                         </div>
                     </div>
@@ -33,7 +32,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Yakıt</label>
-                                <select name="yakittipi" class="form-control">
+                                <select id="yakittipi" class="form-control">
                                     <option value="Benzin">Benzin</option>
                                     <option value="Dizel">Dizel</option>
                                     <option value="Otogaz">Otogaz</option>
@@ -43,8 +42,8 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Vites</label>
-                                <select name="vitestipi" class="form-control">
-                                    <option value="Manual">Manuel</option>
+                                <select id="vitestipi" class="form-control">
+                                    <option value="Manuel">Manuel</option>
                                     <option value="Otomatik">Otomatik</option>
                                 </select>
                             </div>
@@ -52,7 +51,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Plaka</label>
-                                <input type="text" name="plaka" class="form-control" placeholder="Plaka">
+                                <input type="text" id="plaka" class="form-control" placeholder="Plaka">
                             </div>
                         </div>
 
@@ -62,19 +61,19 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Araç Kilometresi</label>
-                                <input type="text" name="arackm" class="form-control" placeholder="Araç Kilometresi">
+                                <input type="text" id="arackm" class="form-control" placeholder="Araç Kilometresi">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Koltuk Sayısı</label>
-                                <input type="text" name="koltuksayisi" class="form-control" placeholder="Koltuk Sayısı">
+                                <input type="text" id="koltuksayisi" class="form-control" placeholder="Koltuk Sayısı">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Air Bag</label>
-                                <select name="havayastigi" class="form-control">
+                                <select id="havayastigi" class="form-control">
                                     <option value="Manual">Var</option>
                                     <option value="Otomatik">Yok</option>
                                 </select>
@@ -86,19 +85,19 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Bagaj Hacmi</label>
-                                <input type="text" name="bagajhacmi" class="form-control" placeholder="Bagaj Hacmi">
+                                <input type="text" id="bagajhacmi" class="form-control" placeholder="Bagaj Hacmi">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Günlük Sınır Kilometresi</label>
-                                <input type="text" name="gunlukkmsinir" class="form-control" placeholder="Günlük Sınır Kilometresi">
+                                <input type="text" id="gunlukkmsinir" class="form-control" placeholder="Günlük Sınır Kilometresi">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Günlük Kira Miktarı</label>
-                                <input type="text" name="gunlukkirabedeli" class="form-control" placeholder="Günlük Kira Miktarı">
+                                <input type="text" id="gunlukkirabedeli" class="form-control" placeholder="Günlük Kira Miktarı">
                             </div>
                         </div>
                     </div>
@@ -107,21 +106,21 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Gereken Ehliyet Yaşı</label>
-                                <input type="text" name="gerekenehliyetyasi" class="form-control" placeholder="Gereken Ehliyet Yaşı">
+                                <input type="text" id="gerekenehliyetyasi" class="form-control" placeholder="Gereken Ehliyet Yaşı">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Minimum Yaş Sınırı</label>
-                                <input type="text" name="minyassiniri" class="form-control" placeholder="Minimum Yaş Sınırı">
+                                <input type="text" id="minyassiniri" class="form-control" placeholder="Minimum Yaş Sınırı">
                             </div>
                         </div>
                     </div>
 
-                    <button type="submit" name="aracekle" value="Create"class="btn btn-info btn-fill pull-right">Araç Ekle</button>
+                    <input type="button" id="aracekle" value="Araç Ekle"class="btn btn-info btn-fill pull-right"/>
                     <div class="clearfix"></div>
                 </form>
             </div>
         </div>
     </div>
-}
+
