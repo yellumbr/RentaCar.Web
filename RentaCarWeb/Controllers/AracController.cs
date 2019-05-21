@@ -35,30 +35,15 @@ namespace RentaCarWeb.Controllers
 
         public ActionResult Create(FormCollection collection)
         {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-            
-                var aracadi = Request.Form["aracadi"];
-                var arackm = int.Parse(Request.Form["arackm "]);
-                var aracmodeli = Request.Form["aracmodeli"];
-                var bagajhacmi = int.Parse(Request.Form["bagajhacmi "]);
-                var gerekenehliyetyasi = int.Parse(Request.Form["gerekenehliyetyasi "]);
-                var gunlukkirabedeli = int.Parse(Request.Form["gunlukkirabedeli "]);
-                var gunlukkmsinir = int.Parse(Request.Form["gunlukkmsinir"]);
-                var koltuksayisi = int.Parse(Request.Form["koltuksayisi"]);
-                var minyassiniri = int.Parse(Request.Form["minyassiniri"]);
-                var plaka = Request.Form["plaka"];
-                var havayastigi = Request.Form["havayastigi"];
-                var yakittipi = Request.Form["yakittipi"];
-                var vitestipi = Request.Form["vitestipi"];
-                //if (AracEkle(aracadi, arackm, aracmodeli, bagajhacmi, gerekenehliyetyasi, gunlukkirabedeli, gunlukkmsinir, koltuksayisi, minyassiniri, plaka, havayastigi, yakittipi, vitestipi))
-                //    return RedirectToAction("Create");
-                Console.WriteLine("Girdim");
+         
                 return View();
             
           
+        }
+
+        public ActionResult AracListesi()
+        {
+            return View();
         }
 
         public ActionResult ListAll()

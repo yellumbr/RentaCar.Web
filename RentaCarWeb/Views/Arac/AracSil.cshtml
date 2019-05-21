@@ -15,7 +15,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Plaka</label>
-                                <select class="form-control">
+                                <select class="form-control" id="cmbPlaka">
                                     <option value="Plaka1">Plaka1</option>
                                     <option value="Plaka2">Plaka2</option>
                                 </select>
@@ -23,10 +23,70 @@
                         </div>
                     </div>
 
-                    <input type="button" value="Araç Sil "class="btn btn-info btn-fill pull-right">
+                    <input type="button" id="aracsil" value="Araç Sil " class="btn btn-info btn-fill pull-right">
+                    <input id="sirketid" type="hidden" />
+                    <input id="aracid" type="hidden" />
                     <div class="clearfix"></div>
                 </form>
             </div>
         </div>
     </div>
+<script>
+     $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://rentacarservices.azurewebsites.net/api/arac/",
+            success: function (data) {
+                $.each(data, function (i, val) {
+                    $("#cmbPlaka").append(
+                        '<option>' + val.Plaka + '</option>'
+                    )
+                })
+            }
+        });
+
+        $("#cmbPlaka").change(function () {
+            var seciliPlaka = $(this).children("option:selected").val();
+            alert(seciliPlaka);
+            $.ajax({
+                type: "GET",
+                url: "http://rentacarservices.azurewebsites.net/api/arac?Plaka=" + seciliPlaka,
+                success: function (data) {
+                    $("#sirketid").val(data.SirketID);
+                    $("#aracid").val(data.AracID);
+                }
+            });
+        });
+
+
+         $("#aracsil").click(function () {
+
+             var sirketID = $("#sirketid").val();
+             var aracID = $("#aracid").val();
+
+             var sirket = new Object();  
+            //TODO ŞİRKET YAZILACAK,
+            
+
+             $.ajax({
+                 type: "DELETE",
+                 url: ""+aracID,
+                 success: function (data) {
+
+                     $.ajax({
+
+                         type: "PUT",
+                         url: "" + sirketID,
+                         data: sirket,
+                         success: function () {
+                             alert("Tamamlandı");
+                         }
+                     })
+                 }
+             })
+
+         })
+    });
+
+</script>
 

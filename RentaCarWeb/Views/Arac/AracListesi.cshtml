@@ -49,39 +49,60 @@
             </div>
 
             <div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
-                <div class="row">
-                    @foreach (var item in ViewBag.Araclar)
-                    {
-                        if ((item.Kirada == false) && (item.Rezerv == false))
-                        {
-                            <a href="Detay/@item.AracId">
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="product-item">
-                                        <div class="pi-pic">
-                                            <div class="tag-sale">ON SALE</div>
-                                            <img src="~/Content/images/@item.AracResmi" alt="">
-                                            <div class="pi-links">
-                                                <a href="#" class="add-card"><i class="flaticon-bag"></i><span>Rezerve Et</span></a>
-                                            </div>
-                                        </div>
-                                        <div class="pi-text">
-                                            <h6>@item.GunlukKiraBedeli ₺ </h6>
-                                            <h5>@item.AracAdi</h5>
-                                            <p>@item.AracModeli</p>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        }
+                <div class="row" id="aracdetayi">
+                    
+                            
+                        
 
-                    }
-                    <div class="text-center w-100 pt-3">
-                        <button class="site-btn sb-line sb-dark">Daha Fazla Göster</button>
-                    </div>
+                    
+                    
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:54205/api/arac",
+            success: function (data) {
+                $.each(data, function (i, val) {
+                    var a = val.AracID;
+                    var b = val.AracResmi;
+                    alert("" + a);
+                    if (val.Kirada === false || val.Rezerve === true)
+                    {
+                     $("#aracdetayi").after(
+                        '<a href="./aracdetay/' + a + '">' +
+                        '<div class="col-lg-4 col-sm-6">' +
+                        '<div class="product-item">' +
+                        '<div class="pi-pic">' +
+                        '<img src="~/Content/images/' + b + '">' +
+                        '<div class="pi-links">' +
+                        ' <a href="./aracrezerve/'+a+'" class="add-card"><i class="flaticon-bag"></i><span>Rezerve Et</span></a>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="pi-text">' +
+                        '<h6>' + val.GunlukKiraBedeli + '</h6>' +
+                        '<h5>' + val.AracAdi + '</h5>' +
+                        '<p>' + val.AracModeli + '</p>' +
+                         '<div class="text-center w-100 pt-3">'+
+                       ' <input type="button" id="dahafazlagoster" value="Daha Fazla Göster" class="site-btn sb-line sb-dark">'+
+                         '</div>'+
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</a>')
+                     }
+                   
+
+                });
+            }
+        });
+    });
+
+</script>
 

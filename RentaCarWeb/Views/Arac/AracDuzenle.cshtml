@@ -15,7 +15,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Plaka</label>
-                            <select class="form-control">
+                            <select class="form-control" id="cmbplaka">
                                 <option value="kullanıcı1">plaka1</option>
                                 <option value="kullanıcı2">plaka2</option>
                             </select>
@@ -29,22 +29,16 @@
 
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Marka</label>
-                            <input type="text" class="form-control" placeholder="Marka">
+                            <input type="text" class="form-control" id="aracadi" placeholder="Marka">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Model</label>
-                            <input type="text" class="form-control" placeholder="Model">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Yıl</label>
-                            <input type="text" class="form-control" placeholder="Yıl">
+                            <input type="text" class="form-control" id="aracmodeli" placeholder="Model">
                         </div>
                     </div>
                 </div>
@@ -53,7 +47,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Yakıt</label>
-                            <select class="form-control">
+                            <select class="form-control" id="yakittipi">
                                 <option value="Benzin">Benzin</option>
                                 <option value="Dizel">Dizel</option>
                                 <option value="Otogaz">Otogaz</option>
@@ -63,7 +57,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Vites</label>
-                            <select class="form-control">
+                            <select class="form-control" id="vitestipi">
                                 <option value="Manual">Manuel</option>
                                 <option value="Otomatik">Otomatik</option>
                             </select>
@@ -72,7 +66,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Plaka</label>
-                            <input type="text" class="form-control" placeholder="Plaka">
+                            <input type="text" class="form-control" id="plaka" placeholder="Plaka">
                         </div>
                     </div>
 
@@ -82,19 +76,19 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Araç Kilometresi</label>
-                            <input type="text" class="form-control" placeholder="Araç Kilometresi">
+                            <input type="text" class="form-control" id="arackm" placeholder="Araç Kilometresi">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Koltuk Sayısı</label>
-                            <input type="text" class="form-control" placeholder="Koltuk Sayısı">
+                            <input type="text" class="form-control" id="koltuksayisi" placeholder="Koltuk Sayısı">
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group">
+                        <div class="form-group" id="havayastigi">
                             <label>Air Bag</label>
-                            <select class="form-control">
+                            <select class="form-control" id="havayastigi">
                                 <option value="Manual">Var</option>
                                 <option value="Otomatik">Yok</option>
                             </select>
@@ -105,19 +99,19 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Bagaj Hacmi</label>
-                            <input type="text" class="form-control" placeholder="Bagaj Hacmi">
+                            <input type="text" class="form-control" id="bagajhacmi" placeholder="Bagaj Hacmi">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Günlük Sınır Kilometresi</label>
-                            <input type="text" class="form-control" placeholder="Günlük Sınır Kilometresi">
+                            <input type="text" class="form-control" id="gunlukkmsinir" placeholder="Günlük Sınır Kilometresi">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Günlük Kira Miktarı</label>
-                            <input type="text" class="form-control" placeholder="Günlük Kira Miktarı">
+                            <input type="text" class="form-control" id="gunlukirabedeli" placeholder="Günlük Kira Miktarı">
                         </div>
                     </div>
                 </div>
@@ -126,21 +120,123 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Gereken Ehliyet Yaşı</label>
-                            <input type="text" class="form-control" placeholder="Gereken Ehliyet Yaşı">
+                            <input type="text" class="form-control" id="gerekenehliyetyasi" placeholder="Gereken Ehliyet Yaşı">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Minimum Yaş Sınırı</label>
-                            <input type="text" class="form-control" placeholder="Minimum Yaş Sınırı">
+                            <input type="text" class="form-control" id="minyassiniri" placeholder="Minimum Yaş Sınırı">
                         </div>
                     </div>
                 </div>
 
-                <input type="button" class="btn btn-info btn-fill pull-right" value="Araç Güncelle">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Araç Gideri</label>
+                            <input type="text" class="form-control" id="aracgideri" placeholder="Araç Gideri">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Araç Resmi</label>
+                            <input type="text" class="form-control" id="aracresmi" placeholder="Araç Resmi">
+                        </div>
+                    </div>
+                </div>
+
+                <input type="button" class="btn btn-info btn-fill pull-right" id="aracguncelle" value="Araç Güncelle">
                 <div class="clearfix"></div>
+
+                <input type="hidden" id="KullaniciId">
+                <input type="hidden" id="Anahtar">
+                <input type="hidden" id="SirketId" />
+
+
+
+                @Html.Hidden("RedirectTo", Url.Action("Index", "Kullanici"))
             </form>
         </div>
     </div>
 </div>
+<script>
+     var url = $("#RedirectTo").val();
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://rentacarservices.azurewebsites.net/api/kullanici/",
+            success: function (data) {
+                $.each(data, function (i, val) {
+                    $("#cmbPlaka").append(
+                        '<option>' + val.Plaka + '</option>'
+                    )
+                })
+            }
+        });
+
+        $("#cmbKullanici").change(function () {
+            var seciliPlaka = $(this).children("option:selected").val();
+            $.ajax({
+                type: "GET",
+                url: "http://rentacarservices.azurewebsites.net/api/Arac?Plaka=" + seciliPlaka,
+                success: function (car) {
+                    $("#plaka").val(car.Plaka);
+                    $("#aracadi").val(car.AracAdi);
+                    $("#aracmodeli").val(car.AracModeli);
+                    $("#gerekenehliyetyasi").val(car.GerekenEhliyetYasi);
+                    $("#minyassiniri").val(car.MinimumYasSiniri);
+                    $("#gunlukkmsinir").val(car.GunlukKmSiniri);
+                    $("#arackm").val(car.AracKm);
+                    $("#havayastigi").val(car.HavaYastigi);
+                    $("#bagajhacmi").val(car.BagajHacmi);
+                    $("#koltuksayisi").val(car.KoltukSayisi);
+                    $("#gunlukkirabedeli").val(car.GunlukKiraBedeli);
+                    $("#yakittipi").val(car.YakitTipi);
+                    $("#vitestipi").val(car.VitesTipi);
+                    $("#aracresmi").val(car.AracResmi);
+                    $("#aracgider").val(car.AracGider);
+                    $("#SirketId").val(car.SirketID);
+                }
+            });
+        });
+
+
+        $("#aracguncelle").click(function () {
+            var id = $("#AracId").val();
+            var car = new Object();  
+            car.id = id;
+            car.Plaka = $("#plaka").val();
+            car.AracAdi = $("#aracadi").val();
+            car.AracModeli = $("#aracmodeli").val();
+            car.GerekenEhliyetYasi = $("#gerekenehliyetyasi").val();
+            car.MinimumYasSiniri = $("#minyassiniri").val();
+            car.GunlukKmSiniri = $("#gunlukkmsinir").val();
+            car.AracKm = $("#arackm").val();
+            car.HavaYastigi = $("#havayastigi").val();
+            car.BagajHacmi = $("#bagajhacmi").val();
+            car.KoltukSayisi = $("#koltuksayisi").val();
+            car.GunlukKiraBedeli = $("#gunlukkirabedeli").val();
+            car.YakitTipi = $("#yakittipi").val();
+            car.VitesTipi = $("#vitestipi").val();
+            car.AracResmi = $("#aracresmi").val();
+            car.SirketID = $("#SirketId").val();
+            car.AracGider = $("#aracgider").val();
+
+            $.ajax({
+                type: "PUT",
+                url: "http://rentacarservices.azurewebsites.net/api/arac/" + id,
+                data: car,
+                success: function (data) {
+                    alert("Güncelleme başarılı.");
+                    window.location.href = url;
+
+                }
+            });
+        });
+    });
+
+
+
+</script>
 

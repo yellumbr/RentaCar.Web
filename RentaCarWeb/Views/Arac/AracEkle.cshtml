@@ -17,13 +17,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Marka</label>
-                                <input type="text"id="aracadi" class="form-control" placeholder="Marka">
+                                <input type="text" id="aracadi" class="form-control" placeholder="Marka">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Model</label>
-                                <input type="text"id="aracmodeli" class="form-control" placeholder="Model">
+                                <input type="text" id="aracmodeli" class="form-control" placeholder="Model">
                             </div>
                         </div>
                     </div>
@@ -117,10 +117,86 @@
                         </div>
                     </div>
 
-                    <input type="button" id="aracekle" value="Araç Ekle"class="btn btn-info btn-fill pull-right"/>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Araç Resmi</label>
+                                <input type="text" id="aracresmi" class="form-control" placeholder="Araç Resmi">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Araç Gider</label>
+                                <input type="text" id="aracgider" class="form-control" placeholder="Araç Gider">
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="button" id="aracekle" value="Araç Ekle" class="btn btn-info btn-fill pull-right" />
                     <div class="clearfix"></div>
+                    <input type="hidden" id="sirketId" />
                 </form>
             </div>
         </div>
     </div>
+
+<script>
+
+    $("#aracekle").click(function () {
+            
+        var car = new Object();
+
+         var token = localStorage.getItem("Anahtar");
+
+                    $.ajax({
+                        type: "GET",
+                        url: "http://localhost:54205/api/kullanici?Anahtar=" + token,
+                        data: user,
+                        success: function () {
+                            $.ajax({
+
+                                type: "GET",
+                                url:"http://localhost:54205/api/yonetici?KullaniciId="+user.KullaniciId,
+                                data: yonetici,
+                                success: function () {
+                                     $("#sirketId").val(yonetici.SirketID);
+                                   
+                                }
+
+                            })
+                        }
+                    });
+           
+            car.Plaka = $("#plaka").val();
+            car.AracAdi = $("#aracadi").val();
+            car.AracModeli = $("#aracmodeli").val();
+            car.GerekenEhliyetYasi = $("#gerekenehliyetyasi").val();
+            car.MinimumYasSiniri = $("#minyassiniri").val();
+            car.GunlukKmSiniri = $("#gunlukkmsinir").val();
+            car.AracKm = $("#arackm").val();
+            car.HavaYastigi = $("#havayastigi").val();
+            car.BagajHacmi = $("#bagajhacmi").val();
+            car.KoltukSayisi = $("#koltuksayisi").val();
+            car.GunlukKiraBedeli = $("#gunlukkirabedeli").val();
+            car.YakitTipi = $("#yakittipi").val();
+            car.VitesTipi = $("#vitestipi").val();
+            car.AracResmi = $("#aracresmi").val();
+            car.SirketID = $("#sirketId").val();
+            car.AracGider = $("#aracgider").val();
+        
+           
+
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:54205/api/arac/",
+                data: car,
+                success: function () {
+                    alert("BAŞARILI");
+                    
+                }
+            });
+        });
+
+</script>
 
