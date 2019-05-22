@@ -46,14 +46,16 @@ namespace RentaCarWeb.Controllers
             return View();
         }
 
-        public ActionResult ListAll()
+        public ActionResult AracEkle()
         {
-           
-                
-                return View();
-            
+            return View();
         }
-
+        public ActionResult AracDetay(int id)
+        {
+            ViewBag.aracId = id;
+            return View();
+        }
+       
 
 
         //private bool AracEkle(string aracadi, int arackm, string aracmodeli, int bagajhacmi, int gerekenehliyetyasi, int gunlukkirabedeli,

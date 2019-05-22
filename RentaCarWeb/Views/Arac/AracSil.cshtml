@@ -35,7 +35,7 @@
      $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "http://rentacarservices.azurewebsites.net/api/arac/",
+            url: "http://localhost:54205/api/arac/",
             success: function (data) {
                 $.each(data, function (i, val) {
                     $("#cmbPlaka").append(
@@ -50,7 +50,7 @@
             alert(seciliPlaka);
             $.ajax({
                 type: "GET",
-                url: "http://rentacarservices.azurewebsites.net/api/arac?Plaka=" + seciliPlaka,
+                url: "http://localhost:54205/api/arac?Plaka=" + seciliPlaka,
                 success: function (data) {
                     $("#sirketid").val(data.SirketID);
                     $("#aracid").val(data.AracID);

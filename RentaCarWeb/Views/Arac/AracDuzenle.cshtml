@@ -179,7 +179,7 @@
             var seciliPlaka = $(this).children("option:selected").val();
             $.ajax({
                 type: "GET",
-                url: "http://rentacarservices.azurewebsites.net/api/Arac?Plaka=" + seciliPlaka,
+                url: "http://localhost:54205/api/arac?Plaka=" + seciliPlaka,
                 success: function (car) {
                     $("#plaka").val(car.Plaka);
                     $("#aracadi").val(car.AracAdi);
@@ -225,7 +225,7 @@
 
             $.ajax({
                 type: "PUT",
-                url: "http://rentacarservices.azurewebsites.net/api/arac/" + id,
+                url: "http://localhost:54205/api/arac/" + id,
                 data: car,
                 success: function (data) {
                     alert("Güncelleme başarılı.");

@@ -25,9 +25,9 @@
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "http://localhost:54205/api/arac",
-            success: function (data) {
-                $.each(data, function (i, val) {
+            url: "http://localhost:54205/api/arac/"+@ViewBag.aracId,
+            success: function (val) {
+                
                     var a = val.AracID;
                     var b = val.AracResmi;
                     var c = val.SirketID;
@@ -59,36 +59,39 @@
                         '</div>' +
                         '</div>' +
                         '</div>'
-                    )
-                });
-            }
-        });
-
-        var sirket = $("#SirketId").val();
-
-        $.ajax({
-            type: "GET",
-            url: "" + sirket,
-            success: function (data) {
-
-                $("#aracdetayi").after(
-                    '<div class="panel">' +
-                    '<div class="panel-header" id="headingTwo">' +
-                    '<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Firma Bilgisi </button>' +
-                    '</div>' +
-                    '<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">' +
-                    '<div class="panel-body">' +
-                    +data.Ad + '<br/>' +
-                    data.Puan +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>'
-
                 )
+                
+
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost:54205/api/sirket/" + c,
+                    success: function (data) {
+                        
+                        $("#aracdetayi").after(
+                            '<div class="panel">' +
+                            '<div class="panel-header" id="headingTwo">' +
+                            '<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Firma Bilgisi </button>' +
+                            '</div>' +
+                            '<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">' +
+                            '<div class="panel-body">' +
+                            data.SirketAdi + '<br/>' +
+                            data.SirketPuani +
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>'
+
+                        )
+                    }
+                });
+                
             }
         });
+
+       
+
+        
     }); 
 
 

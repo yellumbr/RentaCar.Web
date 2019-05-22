@@ -71,9 +71,10 @@
             success: function (data) {
                 $.each(data, function (i, val) {
                     var a = val.AracID;
+                 
                     var b = val.AracResmi;
                     alert("" + a);
-                    if (val.Kirada === false || val.Rezerve === true)
+                    if (val.Kirada === false || val.Rezerve === false)
                     {
                      $("#aracdetayi").after(
                         '<a href="./aracdetay/' + a + '">' +
